@@ -1,14 +1,11 @@
 package com.zkh.utils;
-import java.io.BufferedReader;
-import java.io.BufferedWriter;
-import java.io.InputStream;
-import java.io.InputStreamReader;
-import java.io.OutputStreamWriter;
-import java.net.URI;
 import org.apache.hadoop.conf.Configuration;
 import org.apache.hadoop.fs.FSDataOutputStream;
 import org.apache.hadoop.fs.FileSystem;
 import org.apache.hadoop.fs.Path;
+
+import java.io.*;
+import java.net.URI;
 /**
  * 
  * @Description: hdfs 操作工具类
@@ -18,8 +15,9 @@ import org.apache.hadoop.fs.Path;
  */
 public class HdfsUtil {
 
-	private static final String HDFSURI = "hdfs://ns1";
-	private static final String HDFSUSER = "root";
+	/*private static final String HDFSURI = "hdfs://ns1";*/
+	private static final String HDFSURI = "hdfs://localhost:9000";
+	private static final String HDFSUSER = "hadoop";
 
 	/**
 	 * 
@@ -30,6 +28,8 @@ public class HdfsUtil {
 	 *
 	 */
 	public static FileSystem getFileSystem() {
+		//配置路径,必须,不然报错
+		System.setProperty("hadoop.home.dir", "D:\\hadoop\\hadoop-2.5.2");
 		Configuration conf = new Configuration();
 		conf.setBoolean("dfs.permissions", false);
 		FileSystem hdfs = null;
@@ -155,7 +155,7 @@ public class HdfsUtil {
 	public static void main(String[] args) throws Exception {
 		//mkdirsFiles("/hdfs/java/api");
 		//createFileAndText("/hdfs/java/api/1.txt", "大数据人工智能");
-		readFile("/user/hadoop-data/1.txt");
+		readFile("/aaa/README.txt");
 	    //CopyToLocal("/hdfs/java/api/flume.txt", "D:/1.txt");
 		//CopyFromLocal("D:/flume.txt", "/hdfs/java/api");
 	}

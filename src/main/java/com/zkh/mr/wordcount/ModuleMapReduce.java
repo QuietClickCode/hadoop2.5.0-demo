@@ -1,7 +1,5 @@
 package com.zkh.mr.wordcount;
 
-import java.io.IOException;
-
 import org.apache.hadoop.conf.Configuration;
 import org.apache.hadoop.conf.Configured;
 import org.apache.hadoop.fs.Path;
@@ -15,6 +13,8 @@ import org.apache.hadoop.mapreduce.lib.input.FileInputFormat;
 import org.apache.hadoop.mapreduce.lib.output.FileOutputFormat;
 import org.apache.hadoop.util.Tool;
 import org.apache.hadoop.util.ToolRunner;
+
+import java.io.IOException;
 
 /**
  * 
@@ -135,7 +135,7 @@ public class ModuleMapReduce extends Configured implements Tool {
 	public static void main(String[] args) throws Exception {
 		// 1: get confifuration
 		Configuration configuration = new Configuration();
-		
+		System.setProperty("hadoop.home.dir", "D:\\hadoop\\hadoop-2.5.2");
 		//set compress
 //		configuration.set("mapreduce.map.output.compress", "true");
 //		configuration.set("mapreduce.map.output.compress.codec", "org.apache.hadoop.io.compress.SnappyCodec");

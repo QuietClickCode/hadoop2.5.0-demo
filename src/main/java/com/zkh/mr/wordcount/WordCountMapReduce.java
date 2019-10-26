@@ -1,8 +1,5 @@
 package com.zkh.mr.wordcount;
 
-import java.io.IOException;
-import java.util.StringTokenizer;
-
 import org.apache.hadoop.conf.Configuration;
 import org.apache.hadoop.conf.Configured;
 import org.apache.hadoop.fs.Path;
@@ -16,6 +13,9 @@ import org.apache.hadoop.mapreduce.lib.input.FileInputFormat;
 import org.apache.hadoop.mapreduce.lib.output.FileOutputFormat;
 import org.apache.hadoop.util.Tool;
 import org.apache.hadoop.util.ToolRunner;
+
+import java.io.IOException;
+import java.util.StringTokenizer;
 
 /**
  * @Description:WordCount 入门
@@ -70,7 +70,8 @@ public int run(String[] args) throws Exception {
 	// 3: set job
 	// input -> map -> reduce -> output
 	// 3.1: input
-	Path inPath = new Path(args[0]);
+	/*Path inPath = new Path(args[0]);*/
+	Path inPath = new Path("hdfs://localhost:9000/input");
 	FileInputFormat.addInputPath(job, inPath);
 	// 3.2: map
 	job.setMapperClass(WordCountMapper.class);
@@ -81,7 +82,8 @@ public int run(String[] args) throws Exception {
 	job.setOutputKeyClass(Text.class);
 	job.setOutputValueClass(IntWritable.class);
 	// 3.4: output
-	Path outPath = new Path(args[1]);
+	/*Path outPath = new Path(args[1]);*/
+	Path outPath = new Path("hdfs://localhost:9000/out2");
 	FileOutputFormat.setOutputPath(job, outPath);
 	// 4: submit job
 	boolean isSuccess = job.waitForCompletion(true);
@@ -89,6 +91,7 @@ public int run(String[] args) throws Exception {
 }
 // step 4: run program
 public static void main(String[] args) throws Exception {
+	System.setProperty("hadoop.home.dir", "D:\\hadoop\\hadoop-2.5.2");
 	// 1: get confifuration
 	Configuration configuration = new Configuration();
 	// int status = new WordCountMapReduce().run(args);
