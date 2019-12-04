@@ -83,7 +83,7 @@ public int run(String[] args) throws Exception {
 	job.setOutputValueClass(IntWritable.class);
 	// 3.4: output
 	/*Path outPath = new Path(args[1]);*/
-	Path outPath = new Path("hdfs://localhost:9000/out2");
+	Path outPath = new Path("hdfs://localhost:9000/out3");
 	FileOutputFormat.setOutputPath(job, outPath);
 	// 4: submit job
 	boolean isSuccess = job.waitForCompletion(true);
