@@ -12,11 +12,13 @@
 <!-- ###NameNode RPC ADDRESS### -->
 	<property>
 		<name>dfs.namenode.rpc-address.ns1.nn1</name>
-		<value>bigdata-cdh01.ibeifeng.com:8020</value>
+		<!--<value>bigdata-cdh01.ibeifeng.com:8020</value>-->
+		<value>localhost:8020</value>
 	</property>
 	<property>
 		<name>dfs.namenode.rpc-address.ns1.nn2</name>
-		<value>bigdata-cdh02.ibeifeng.com:8020</value>
+		<!--<value>bigdata-cdh02.ibeifeng.com:8020</value>-->
+		<value>localhost:8020</value>
 	</property>
 <!-- ###NameNode HTTP WEB ADDRESS### -->
 	<property>
