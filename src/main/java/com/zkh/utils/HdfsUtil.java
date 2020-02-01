@@ -155,9 +155,9 @@ public class HdfsUtil {
 	public static void main(String[] args) throws Exception {
 		//mkdirsFiles("/hdfs/java/api");
 		//createFileAndText("/hdfs/java/api/1.txt", "大数据人工智能");
-		readFile("/aaa/README.txt");
-	    //CopyToLocal("/hdfs/java/api/flume.txt", "D:/1.txt");
-		//CopyFromLocal("D:/flume.txt", "/hdfs/java/api");
+		//readFile("/hdfs/java/api/1.txt");
+	    //CopyToLocal("/hdfs/java/api/1.txt", "D:/1.txt");
+		CopyFromLocal("F:\\sdk\\sources\\android-29\\android\\view\\View.java", "/hdfs/java/api");
 	}
 
 }
